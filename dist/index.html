@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Vite App</title>
+        <style id="r">
+            *,*::before,*::after {box-sizing: border-box}
+            * {margin: 0}
+            html,body {height: 100%}
+            body {line-height: 1.5;-webkit-font-smoothing: antialiased}
+            img,picture,video,canvas,svg {display: block;max-width: 100%}
+            input,button,textarea,select {font: inherit}
+            p,h1,h2,h3,h4,h5,h6 {overflow-wrap: break-word}
+            #root,#__next{isolation: isolate}
+            textarea{display: block;}/*追加*/
+        </style>
+      <script type="module" crossorigin src="/assets/index-4d394b6b.js"></script>
+      <link rel="stylesheet" href="/assets/index-fc3b5216.css">
+    </head>
+
+    <body>
+        <div id="app">
+            <div id="typ"><div id="guide"></div><div><div id="inP" contenteditable=true></div></div>
+            <!-- <span data-c="" class="0">A</span><span data-c="" class="1">B</span><span data-c="" class="2">C</span><span data-c="" class="3">&#x200B;<span id="caret"></span></span> -->
+            <!-- <div id="" contenteditable="true"></div> -->
+            <!-- <textarea id="tt"></textarea> -->
+            </div>
+            <div id="result">
+                <span id="wn">0</span>/<span id="rn">0</span><br>
+                <span id="O">0</span>/<span id="N">0</span>/<span id="T">0</span>
+            </div>
+            <!-- <div>▼</div> -->
+            <details><summary>IME:単語とキー</summary>
+                <input type="button" class="i2k" value="imeOn">
+                <textarea id="i2k"></textarea>
+                <div><div id="i2kS" contenteditable="true"></div><div></div></div>
+        </details>
+            <label class="open" for="popup">ポップアップ表示</label>
+            <input type="checkbox" id="popup">
+            <div id="overlay">
+                <div id="popWindow">
+                    <label class="close" for="popup">X</label>
+                    <textarea id="getIME" placeholder="文字を1文字入力してください"></textarea>
+                </div>
+            </div>
+            <!-- <div id="keyboard">
+                <details open><summary>キーボード画像</summary>
+                    <div><img src="" id="keyV"></div>
+                </details>
+                <details><summary>キーボード設定</summary> -->
+                    <!-- <div style="margin:10px 2px 10px 2px;"> -->
+                    <!-- <label for="keyI">キー配列画像(PNG/JPG)を選択
+                        <div><input type="file" id="keyI" accept="image/jpeg, image/png"></div>
+                    </label>
+                    <label for="keyC">キー配列設定(json)を選択
+                        <div><input type="file" id="keyC" accept="application/json"></div>
+                    </label> -->
+                    <!-- </div> -->
+                    <!-- <input type="button" class="keyInfo" value="keyInfo">
+                    <textarea id="keyInfo"></textarea>
+                    <input type="button" class="keyIme" value="keyIme">
+                    <textarea id="keyIme"></textarea>
+                </details>
+                <details><summary>キーボード画像解析</summary>
+                    <details><summary id="opencvRun">OpenCV.js is loading...</summary><div>OpenCV.js buildInfo</div><div id="buildInfo"></div></details>
+                    <div><canvas id="img"></canvas></div>
+                    <div><canvas id="edge"></canvas></div>
+                    <div><canvas id="strongEdge"></canvas></div>
+                    <div><canvas id="getArea"></canvas></div>
+                    <div><canvas id="key"></canvas></div>
+                </details>
+            </div> -->
+            <!-- https://bties.co.jp/homepagenopro/html/css_popup.html -->
+        </div>
+        
+    </body>
+
+</html>
