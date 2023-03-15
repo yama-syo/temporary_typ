@@ -1,0 +1,35 @@
+	skeyIndex = [];
+	{
+		//正規表現を表す文字列で正規表現部分,オプション部分,その文字に変換するかの三種を"/"で分けてみる
+		const t = v.split("/");
+		// console.log(/\||\{/g.test(t[0]));
+		if(/\||\{/g.test(t[0])) a.push(new RegExp( t[0], t[1] ));//正規表現を表す文字列で|{を(ORと\d{1})持っていれば正規表現文字の字数制限なし
+		else a.push(new RegExp( t[0].slice(0,4), t[1] ));
+		const tt = t[0].replace(/[\^\|\||\{|\}\\|,|w]/g, "");
+		if(t.length < 3) a.push(tt);
+		skeyIndex.push(a);
+		M = new Set([...M, ...tt]);
+	}
+	console.log(skeyIndex);
+	console.log([...M].join("").toString() + "1234567890");
+	skeyChar = [...M].join("").toString() + "1234567890";
+
+	// skeyLangReg = [];
+	skeyLangIndex = [];
+	M = new Set();
+	for (const v of skeyLang.values()) {
+		let a = [];
+		const t = v.split("/");
+		if(/\||\{/g.test(t[0])) a.push(new RegExp( t[0], t[1] ));
+		else a.push(new RegExp( t[0].slice(0,4), t[1] ));
+		const tt = t[0].replace(/[\^\|\|]/g, "");
+		if(t.length < 3) a.push(tt);
+		skeyLangIndex.push(a);
+		//セットで文字の重複をなくす
+		// https://qiita.com/netebakari/items/7c1db0b0cea14a3d4419
+		// https://stackoverflow.com/questions/50881453/how-to-add-an-array-of-values-to-a-set
+		M = new Set([...M, ...tt]);
+	}
+	console.log(skeyLangIndex);
+	console.log([...M].join("").toString());
+	skeyLangChar = [...M].join("").toString();

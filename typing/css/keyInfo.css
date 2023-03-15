@@ -1,0 +1,75 @@
+*,*::before,*::after {box-sizing: border-box}
+input,button,textarea,select,details {
+	display: block;
+	position: relative;
+	width: 100%;
+	font: inherit;
+	text-align: center;
+}
+textarea{
+	text-align: left;
+	height: 40vh;
+	resize: vertical;
+}
+/* https://code-kitchen.dev/html/details-summary/ */
+summary {
+	display: block;
+}
+details[open]>summary::before{
+	content: "▼";
+}
+details>summary::before{
+	content: "▶"
+}
+
+details>div{
+	position:relative;
+}
+label{
+	/* --fs:0.8rem; */
+	--fs:1.0rem;
+	/* --fs:1.5rem; */
+	/* --fs:2.0rem; */
+	--fsB:calc(0.8 * var(--fs));
+	display: inline-grid;
+	grid-template-rows: 1fr 0.5fr;
+	width: 45%;
+	height: max-content;
+	margin: 5px 0 10px 0;
+	background-color: #7f9ccb;
+	border-radius: 5px;
+	border: 1px ridge black;
+	font-size: var(--fs);
+	text-align: center;
+	place-items: center;
+	/* align-items: center;
+	justify-content: center; */
+}
+label>div{
+	overflow: hidden;
+	width: max-content;
+}
+/* https://www.d-grip.com/blog/seisaku/4661 */
+div>input{
+	top: -4px;
+	/* margin: 0 0 0 calc( -30px - var(--fsB) * 6.2 ); */
+	margin: 0 0 0 calc( -25px - var(--fsB) * 6.7 );
+	width:max-content;
+	font-size: var(--fsB);
+}
+/* label>input::before{
+	content: "FileName : ";
+	position: absolute;
+	background-color: #7f9ccb;
+	font-size: 1.0rem;
+	width: max-content;
+	height: 100%;
+	text-align:right;
+} */
+img~div{
+	position: absolute;
+	display: none;
+}
+div>img{
+	width:100%;
+}

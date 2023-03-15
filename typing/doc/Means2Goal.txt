@@ -1,0 +1,182 @@
+- MSVC - VS C++ x64/x86 build tools
+- Windows SDK
+rust serde
+asでserial deserial
+renameを使って
+struct{
+	(rename 1)
+	name: string
+}
+serialzer.set(1, "ba")
+各型
+uint,int,f32,f64,string,array,datetime(unixtime?),date
+u8,i8以外は
+u63Num(=byteLength:variable length quantiy 63bit) + bytes(bytesize:u64Num)
+intはzigzag -> variable length quantiy
+
+//要素外(その要素の子孫以外)をクリック
+// https://www.it-the-best.com/entry/javascript-snippet-outrangeclick
+// https://qiita.com/mabots/items/74c21ebcedf0004f7fb5#fn2
+
+//要素外
+// https://qiita.com/wintyo/items/5b39f6f6591d6ec3a301
+
+//javascript cors
+https://qiita.com/il-m-yamagishi/items/9aad5737c80d5bfd5eb8
+https://qiita.com/HAYASHI-Masayuki/items/209039717c15834603d8
+https://developer.mozilla.org/ja/docs/Web/API/Document/cookie
+
+要素の個数に応じてスタイルを出し分けるCSSメモ
+https://qiita.com/skwbr/items/0b6804087a0a377fd598
+
+クラス名指定にはnth-childを使用できない
+https://www.gravity-works.jp/css_blog/2022/06/nth-child.html
+
+Number(),parseInt(),parseFloat()のちがい
+https://qiita.com/kiwaki/items/53bdf11e1a230faa14cc
+
+cssのセレクタに数字
+// https://qiita.com/ka-ko/items/feacb4d3ff22666d51b1
+// http://csharpvbcomparer.blogspot.com/2015/08/js-queryselector-for-id-starts-with-number.html
+keyEle.replaceCss(ruleStr.replace(/\\(\w)/g, "$1").replace(/(\d)/g, "\\00003$1"), 0);//一回目のreplaceで、数字の場合"\\"が削除されるので2度目のreplaceでつける
+
+caret
+https://github.com/component/textarea-caret-position
+https://stackoverflow.com/questions/17016698/get-caret-coordinates-on-a-contenteditable-div-through-javascript
+https://stackoverflow.com/questions/58985076/get-caret-position-coordinates-relative-to-the-window-x-y
+https://stackoverflow.com/questions/17965354/set-textareas-caret-position-using-x-and-y-position
+
+rust serde
+https://stackoverflow.com/questions/39383809/how-to-transform-fields-during-serialization-using-serde
+https://qiita.com/garkimasera/items/9f70967f58a2c1f0886d
+https://qiita.com/kobae964/items/86d8e27604d53cddb47d
+
+ganttchart,memoアプリ
+	//<div id="app">の内容が変わるたび要はSPA
+		//http://var.blog.jp/archives/78952789.html
+		appCss = new CSSStyleSheet();
+		appCss.replaceSync(cssRuleStr);
+		document.adoptedStyleSheets = [appCss];
+	でCSSを変える
+
+	detailsを横に展開できるので、それを利用してganttchartのタイトル、担当者の列を展開する
+
+難易度マップ
+	マインドマップのように表示
+		文字表示部がもつ(つながる)子孫が多い、深いほど難しいと判断して、深さ＋多さの数だけを文字表示部の背景より赤くする
+		@( or : )1つか2つでその前の文字列をタイトル文字列、後の文字列を詳細文字列とする
+		↓のように親の下の行がタブ1つまたはスペース2つで子とする。
+
+y + 18 = 38 or
+DOMRect {x: 34, y: 20, width: 0, height: 108, top: 20, …}
+bottom
+:
+128
+height
+:
+108
+left
+:
+34
+right
+:
+34
+top
+:
+20
+width
+:
+0
+x
+:
+34
+y
+:
+20
+
+bottom
+:
+98
+height
+:
+48
+left
+:
+66
+right
+:
+66
+top
+:
+50
+width
+:
+0
+x
+:
+66
+y
+:
+50
+
+Goal@自作キーボードでもキー配置とキーダウン位置を表示して、タイピング練習。題材を画面から取ってくる(OCR)
+	Means@
+		feature
+			todo
+				can
+					lastchildのゼロスペースの要素消す
+						改行時,\nならそのまま使える？brならいる、処理どうする？
+					keyinfoのクラスコンストラクタ部分を全部非同期関数にして、返り値をfinishに与えて、それを監視させる
+					入力時、入力場所に合わせて自動スクロール
+						Element.scrollIntoView
+					キャンバスから画像からOCRの部分、関数にして非同期で並列化
+					nowkeyのhtml状のguideから文字取ってくる仕組み、スペースとかエンターとかctrlとか矢印とかはどうする？
+						要素にデータ属性持たせる
+							data-s="ctrl"とか
+					caret位置をキーに合わせて動かす
+						https://gist.github.com/loilo/f873a88631e660c59a1d5ab757ca9b1e
+				can't
+					IMEの状態
+						アプリ化しないとむり
+						windowsはwin32api
+						linuxはfcitxならdbusから
+			want
+				can
+					グーグルドライブOCR
+						キー画像UPLOAD用
+							https://usefulangle.com/post/353/javascript-canvas-image-upload
+						キー画像何枚までか確認
+							少ない枚数しかOCRでできない場合、opencvの横つなぎ画像？で文字検出。
+				can't
+
+				unknown
+					resize時、キーボード画面変更
+						https://developer.mozilla.org/ja/docs/Web/API/Window/resize_event
+						https://developer.mozilla.org/ja/docs/Web/API/ResizeObserver
+						https://webfrontend.ninja/js-resize-observer/
+					キーボード画面表示部をwebcomponent化？
+						キーボード画面表示部構築後を通知する仕組み
+							カスタムイベントでLOADイベント発行
+						キーボード設定後の設定変数をexport
+							getter,setter
+						キーボードのキー表示
+							css replaceがどう使える？
+						キーボード画面表示構築するイベント
+							初期化、キーボード画像変更、キーボード設定ファイル変更、キーボード設定入力してから変更、リサイズ時のキーボード画面表示変更
+							完了イベントの発行
+					ローカルPC環境:Windows
+						タイピングソフトでsendinputで指定したソフトへ入力を渡す?
+						キーボード、global hookがある？
+						ドラッグしてocrしたい画面範囲選択、範囲を画面キャプチャしてwinOCR(???) or tesseract(javascirpt:wasm)
+							ドラッグ中
+								ソフトを最小化？or透明化？
+								ドラッグ中のカーソル変更
+								ドラッグ範囲の表示方法（枠線を表示、枠線を点線に）
+							選択範囲の画面キャプチャ
+							winOCRするライブラリ、言語
+
+			not wont
+
+			not todo
+
+	marked details extensionある？

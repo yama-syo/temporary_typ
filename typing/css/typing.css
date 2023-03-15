@@ -1,0 +1,374 @@
+textarea,input{
+	width: 100%;
+}
+textarea{
+	height: 8rem;
+}
+#typ {
+	/* --fontS: 30px; */
+	/* --fontS: 1.0rem; */
+	/* --fontS: 1.2rem; */
+	/* --fontS: 1.5rem; */
+	--fontS: 2rem;
+	/* --fontS: 3rem; */
+
+	--gLineHPadding: calc( 0.25 * var(--fontS) / 2);
+	/* --lineH: calc(3.2 * var(--fontS)); */
+	/* --lineH: calc(3 * var(--fontS) + var(--gLineHPadding)); */
+
+	--gLineH: calc(var(--fontS) + var(--gLineHPadding));
+	--lineH: calc(3 * var(--gLineH));
+	/* --offset: 2px; */
+	--bottomFontS: calc( var(--fontS) / 2 );
+	--bottomHight: calc( var(--fontS) / 2 + var(--gLineHPadding));
+
+	--fontPadding: calc( (var(--lineH) - var(--fontS)) / 2);
+	/* --viewLine: calc(var(--gLineH) + var(--bottomHight) - var(--gLineHPadding) / 2); */
+	--viewLine: calc(var(--bottomHight));
+	/* --viewLine: calc(var(--fontS) - var(--gLineHPadding)); */
+	/* --viewLine: calc(var(--gLineH) + var(--bottomHight)); */
+	/* --viewOffset: calc(var(--viewLine)  + var(--bottomFontS) - var(--gLineH)) ; */
+	/* position: absolute; */
+	position: relative;
+	/* top: calc( -1 * var(--fontS)); */
+	margin: 0;
+	/* margin-top: calc( -1 * var(--fontS)); */
+	padding: 0;
+	/* padding-inline: 0; */
+	width: 100%;
+	height: 50vh;
+	overflow-y: scroll;
+	resize: both;
+	border-bottom: 2px solid black;
+	font-size: var(--fontS);
+	/* https://magazine.techacademy.jp/magazine/8615#:~:text=%E3%81%9D%E3%81%AE%E3%81%9F%E3%82%81%E3%80%81%E6%96%87%E5%AD%97%E3%81%AE%E4%B8%8A%E4%B8%8B%E3%81%AE,%E4%BD%99%E7%99%BD%E3%81%8C%E9%85%8D%E7%BD%AE%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%E3%80%82 */
+	line-height: var(--lineH);
+	/* https://gray-code.com/html_css/setting-tab-size-by-css/#:~:text=%E3%82%BF%E3%83%96%E3%81%AE%E5%B9%85%E3%81%AF%E5%88%9D%E6%9C%9F,%E3%81%AB%E6%B3%A8%E6%84%8F%E3%81%97%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82 */
+	/* https://spuit.tech/css/tab-size/	 */
+	tab-size: 4;
+	/* -moz-tab-size: 4; */
+	/* font-stretch: extra-expanded; */
+	/* font-weight: normal; */
+	/* font-family: monospace; */
+	/* font-family: 游ゴシック; */
+	/* font-family: メイリオ; */
+	/* font-family: "NotoSansJPVF", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; */
+	/* font-family: "NotoSansJPVF"; */
+	/*全部全角幅*/
+	/* font-feature-settings:"fwid"; */
+	/*全部半角幅*/
+	font-feature-settings:"hwid";
+	/* font-variation-settings:"wdth" 200; */
+	/* text-transform: full-width; */
+	/* letter-spacing: -1px; */
+	/* overflow-wrap:anywhere; */
+	/* overflow-wrap: break-word; */
+	word-break: break-all;
+	white-space: break-spaces;
+	/* white-space: nowrap; */
+	/* white-space: pre-wrap; */
+	background-color: transparent;
+	/* vertical-align: top; */
+}
+
+#guide {
+	/* position: relative; */
+	position: absolute;
+	/* top: calc( -1 * var(--fontS)); */
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	/* margin: 0; */
+	margin-top: calc(-1 * var(--gLineH));
+	/* padding: 0 0 0 2px; */
+	padding: 0 2px;
+	/* padding: 0 15px 0 2px; */
+	/* padding: 0 3px 0 0; */
+	width: 100%;
+	height: max-content;
+	/* line-height: var(--lineH); */
+	/* height: 100%; */
+	/* border: 2px solid black; */
+	/* background-color: transparent; */
+	color: black;
+	/* vertical-align: top; */
+}
+.Gu{
+	/* position: relative; */
+	display: inline-grid;
+	grid-template-rows: var(--gLineH) var(--bottomHight);
+	/* word-spacing: 2px; */
+	/* width: var(--fontS); */
+	/* width: max-content; */
+	width: min-content;
+	/* width: fit-content; */
+	text-align: center;
+	/* height: var(--lineH); */
+	/* ↓1行ないと2行目からずれる */
+	/* vertical-align: top; */
+}
+.To{
+	/* display: inline-block; */
+	/* position:relative; */
+	/* position: absolute; */
+	width: max-content;
+	/* width: var(--fontS); */
+	/* font-size: var(--fontS); */
+	line-height: var(--gLineH);
+}
+.Bo{
+	/* display: inline-block; */
+	/* position: absolute; */
+	/* position: relative; */
+	/* https://qiita.com/aisplay/items/ea024913b143a0655dc5 */
+	/* https://www.yoheim.net/blog.php?q=20200601 */
+	/* left: 0;
+	right: 0; */
+	padding: 0;
+	background-color:rgb(169, 236, 169);
+	/* margin: calc(-1 * var(--gLineHPadding) / 3) 0 0 0; */
+	/* margin: calc( -1 *  var(--gLineHPadding)) 0 0 0; */
+	font-size: var(--bottomFontS);
+	line-height: var(--bottomHight);
+	width: 100%;
+	height: 100%;
+	/* width: max-content; */
+	/* https://www.tam-tam.co.jp/tipsnote/html_css/post11162.html */
+	/* font-feature-settings:"hwid"; */
+	/* background-color: aquamarine; */
+	/* background-color: red; */
+}
+.FW{
+	/*全部全角幅*/
+	font-feature-settings:"fwid";
+}
+.HW{
+	/*全部半角幅*/
+	font-feature-settings:"hwid";
+}
+.Next{
+	/* position: relative; */
+	/* top: calc(var(--fontS) / 10); */
+	background-color: rgb(127, 225, 255);
+	/* width: 100%; */
+	/* width:calc(100% + 2px); */
+	/* height: max-content; */
+	/* text-align: center; */
+}
+.Mi{
+	/* position: relative; */
+	/* top: calc(var(--fontS) / 10); */
+	background-color: red;
+	/* width: 100%; */
+	/* width:calc(100% + 2px); */
+	/* height: max-content; */
+	/* text-align: center; */
+}
+
+/*カーソル位置がずれる*/
+/* #typing>textarea::first-line {
+	line-height: 1;
+} */
+#typ>div:last-child{
+		/* font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; */
+	/* font-feature-settings:"fwid"; */
+	/* font-variation-settings:"wdth" 100; */
+	/* position: relative; */
+	position: absolute;
+	/* top: 0; */
+	top: var(--viewLine);
+	/* margin: var(--inO) 0 0 0; */
+	/* padding: var(--inO) 0 0 0; */
+	margin: 0;
+	padding: 0 2px;
+	/* padding: 0 0 0 3px; */
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	/* height: calc(50% + var(--lineH)); */
+	/* height: 50%; */
+	height: max-content;
+}
+#inP {
+	position: relative;
+	/* border: 2px solid blue; */
+	border: none;
+	/* border-bottom: 1px solid black; */
+	/* box-sizing: unset; */
+	/* https://csshtml.work/input-border-none/ */
+	outline: none;
+	/* cursor:text; */
+	/* font-size: var(--fontS);
+	line-height: var(--lineH); */
+	/* font-size: var(--fontS);
+	line-height: var(--lineH); */
+	/* vertical-align: top; */
+	/* text-align: center; */
+	text-anchor: middle;
+	word-break: break-all;
+	white-space: break-spaces;
+	/*全部全角幅*/
+	/* font-feature-settings:"fwid"; */
+	/*全部半角幅*/
+	/* font-feature-settings:"hwid"; */
+	caret-color: blue;
+	color: transparent;
+	color: blue;
+	background-color: transparent;
+	/* overflow-wrap: break-word; */
+	resize: none;
+	overflow: hidden;
+}
+#inP>div{
+	position: relative;
+	display: inline;
+}
+#inP>div::after{
+	content: attr(data-c);
+}
+#inP>div.B::before{
+	content: "⏎";
+}
+#inP>span::after{
+	content: attr(data-c);
+}
+#inP>span.B::before{
+	content: "⏎";
+}
+
+#inP>span{
+	position: relative;
+}
+
+#caret{
+	/* display: inline-block; */
+	position: absolute;
+	/* top: calc(var(--fontS) - var(--gLineHPadding)); */
+	/* top: 0; */
+	/* top: calc ( -1 * var(--gLineHPadding)); */
+	/* top: var(--viewOffset); */
+	/* top: calc(var(--fontPadding) + var(--viewLine)); */
+	/* bottom: 0;
+	left: 0;
+	right: 0; */
+	/* margin: 0 0 0 2px; */
+	/* margin-top: calc ( 10 * var(--gLineHPadding)); */
+	/* margin: 0; */
+	/* padding: 0; */
+	background-color: rgba(220, 220, 250, 0.8);
+	width: calc( var(--fontS) / 3 );
+	height: var(--gLineH);
+	/* height: 100%; */
+	/* animation: flash 0.8s linear infinite; */
+	/* vertical-align: bottom; */
+}
+/* @keyframes flash {
+	0% {
+		opacity: 0.6;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0.6;
+	}
+} */
+@keyframes flash {
+	25% {
+		opacity: 0.2;
+	}
+	75% {
+		opacity: 0;
+	}
+}
+
+in-p{
+	display: inline-block;
+	border: none;
+	outline: none;
+}
+
+#result{
+	text-align: right;
+}
+#rn::after {
+	font-family: monospace;
+	content: " :打数/文字数";
+	text-align: right;
+}
+
+#T::after {
+	font-family: monospace;
+	content: " : OK/NG/typo ";
+	text-align: right;
+}
+
+/* https://csshtml.work/selecterw/ */
+#N::before,
+#T::before,
+#wn::after,
+#O::after,
+#N::after{
+	content: " ";
+}
+
+
+.open {
+	cursor:pointer;
+}
+#popup {
+	/* display: block; */
+	display: none;
+}
+
+#overlay {
+	display: none;
+}
+#popup:checked + #overlay {
+	position: fixed;
+	display: flex;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	align-items: center;
+	justify-content: center;
+	z-index: 9;
+	background: rgba(0, 0, 0, 0.6);
+}
+#popWindow {
+	/* position: fixed;
+	top: 50%;
+	left: 50%; */
+	/* display: flex; */
+	position: fixed;
+	padding: 20px;
+	width: clamp(360px, 50vw, 90vw);
+	height: clamp(300px, 40vh, 60vh);
+	background-color: #fff;
+	border-radius: 4px;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	/* transform: translate(-50%, -50%); */
+}
+#getIME{
+	width: 100%;
+	height: 100%;
+	resize: none;
+	overflow: hidden;
+}
+/* #imeChecker{
+} */
+.close {
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	cursor:pointer;
+	resize: vertical;
+}
+
+details {
+	text-align: center;
+}

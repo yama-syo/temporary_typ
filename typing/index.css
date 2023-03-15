@@ -1,0 +1,8 @@
+body {
+	/* position:relative; */
+	/* width: 300px; */
+	width: clamp(400px, 60vw, 1500px);
+	height: 100%;
+	/* min-width: max-content; */
+	/* min-height: max-content; */
+}
