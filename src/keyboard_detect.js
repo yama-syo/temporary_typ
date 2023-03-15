@@ -12,9 +12,9 @@ import Tesseract from 'tesseract.js';
 import {createWorker, PSM, OEM } from 'tesseract.js';
 import {getSkey} from "./setKeyChar"
 import {tesseractOCR} from "./OCR";
-// import workerPath from "tesseract.js/dist/worker.min.js?url";
+// import workerPath from "tesseract.js/temporary_typ/dist/worker.min.js?url";
 // import corePath from "tesseract.js-core/tesseract-core.wasm.js?url";
-// import Tesseract from 'tesseract.js/dist/tesseract.esm.min.js';
+// import Tesseract from 'tesseract.js/temporary_typ/dist/tesseract.esm.min.js';
 
 //Edge検出方式
 let edgeMethed = "sobel";// let edgeMethed = "canny";
@@ -208,7 +208,7 @@ async function findContours(matSrc, sEdgeMat, ctxGA, keySA) {
         let k = getSkey();
         const worker = await createWorker({
             // workerPath, corePath
-            // workerPath: "/dist/worker.dev.js",
+            // workerPath: "/temporary_typ/dist/worker.dev.js",
             // logger: m => console.log(m)
         });
         await worker.load();
@@ -363,7 +363,7 @@ async function draw_contours(matSrc, contours, ctxGA, keySA) {
     for (let i = 0; i < keySA.length; i++) {
         ocrW.push(await createWorker({
             // workerPath, corePath
-            // workerPath: "/dist/worker.dev.js",
+            // workerPath: "/temporary_typ/dist/worker.dev.js",
             // logger: m => console.log(m)
             })
         );

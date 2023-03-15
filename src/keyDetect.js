@@ -11,9 +11,9 @@ import {createWorker, PSM, OEM } from 'tesseract.js';
 import {getKey} from "./setKeyStrInfo"
 import {tesseractOCR} from "./OCR";
 
-// import workerPath from "tesseract.js/dist/worker.min.js?url";
+// import workerPath from "tesseract.js/temporary_typ/dist/worker.min.js?url";
 // import corePath from "tesseract.js-core/tesseract-core.wasm.js?url";
-// import Tesseract from 'tesseract.js/dist/tesseract.esm.min.js';
+// import Tesseract from 'tesseract.js/temporary_typ/dist/tesseract.esm.min.js';
 
 //Edge検出方式
 let edgeMethed = "sobel";// let edgeMethed = "canny";
@@ -216,7 +216,7 @@ async function drawContours(matSrc, contours, ctxGA, keySA, getk) {
         keyZ.push(new cv.Mat());
         const w1 = await createWorker({
             // workerPath, corePath
-            // workerPath: "/dist/worker.dev.js",
+            // workerPath: "/temporary_typ/dist/worker.dev.js",
             // logger: m => console.log(m)
         });
         //キー画像全体:使用したい言語で検出
